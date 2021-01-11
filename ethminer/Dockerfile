@@ -5,24 +5,11 @@ WORKDIR /eth/
 # Package and dependency setup
 RUN apt-get update \
     && apt-get -y install software-properties-common \
-    && add-apt-repository -y ppa:ethereum/ethereum -y \
-    && apt-get update \
     && apt-get install -y git \
      cmake \
-     libcryptopp-dev \
-     libleveldb-dev \
-     libjsoncpp-dev \
-     libjsonrpccpp-dev \
-     libboost-all-dev \
-     libgmp-dev \
-     libreadline-dev \
-     libcurl4-gnutls-dev \
-     ocl-icd-libopencl1 \
-     opencl-headers \
+     perl \
+     libdbus-1-dev \
      mesa-common-dev \
-     libmicrohttpd-dev \
-     python \
-     python-twisted \
      build-essential
 
 # Git repo set up
@@ -33,7 +20,7 @@ RUN cd ethminer; \
     git submodule update --init --recursive; \
     mkdir build; \
     cd build; \
-    cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF -DETHSTRATUM=ON; \
+    cmake .. -DETHASHCUDA=ON -DETHSTRATUM=ON; \
     cmake --build .; \
     make install;
 

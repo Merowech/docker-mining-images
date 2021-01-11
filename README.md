@@ -3,5 +3,9 @@
 As I wanted to make as much portable to a lot of machines as possible, I created this repo to share and manage my docker mining images.
 
 Source Repo for Dockerfiles to mine:
- - [Minergate](https://minergate.com/a/8964b4d0ddf18a5b5ccfcb10), a mining pool for ETH, Monero and more - [Docker Image](merowech/docker-mining:minergate) - [Dockerfile](./minergate)
- - ETH in general
+ - ethminer
+ - trex
+  
+trex -a ethash -o stratum+ssl://eu1.ethermine.org:5555 -u 0xb31788c62047c164577D9178B8F0c53f5d8348A1 -w GPU  
+ethminer -U -P stratum1+ssl://0xb31788c62047c164577D9178B8F0c53f5d8348A1.GPU@eu1.ethermine.org:5555  
+
